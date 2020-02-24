@@ -1,4 +1,6 @@
 #include "polinomdnc.hpp"
+int nplus_dc=0;
+int nmul_dc=0;
 
 //C
 PolinomDnC :: PolinomDnC() : Polinom(){}
@@ -28,13 +30,15 @@ PolinomDnC PolinomDnC :: operator+(const PolinomDnC& P){
     if (this->degree >= P.degree ){
         for (int i =0 ; i<= P.degree ; ++i){
             dat[i] = this -> data[i] + P.data [i]; 
+            nplus_dc++;
         }
         for (int i= P.degree +1; i<= this -> degree; ++i){
             dat[i] = this -> data[i];
         }
     }else{
         for (int i =0 ; i<= this->degree ; ++i){
-            dat[i] = this -> data[i] + P.data [i]; 
+            dat[i] = this -> data[i] + P.data [i];
+            nplus_dc++; 
         }
         for (int i= this -> degree +1 ; i<= P.degree; ++i){
             dat[i] = P.data[i];
@@ -49,13 +53,15 @@ PolinomDnC PolinomDnC :: operator-(const PolinomDnC& P){
     if (this->degree >= P.degree ){
         for (int i =0 ; i<= P.degree ; ++i){
             dat[i] = this -> data[i] - P.data [i]; 
+            nplus_dc++;
         }
         for (int i= P.degree +1; i<= this -> degree; ++i){
             dat[i] = this -> data[i];
         }
     }else{
         for (int i =0 ; i<= this->degree ; ++i){
-            dat[i] = this -> data[i] - P.data [i]; 
+            dat[i] = this -> data[i] - P.data [i];
+            nplus_dc++; 
         }
         for (int i= this -> degree +1 ; i<= P.degree; ++i){
             dat[i] = 0 - P.data[i];
@@ -73,6 +79,7 @@ PolinomDnC PolinomDnC ::  operator*(const PolinomDnC& P){
     if (this->degree ==0){
         int * dat = new int[1];
         dat[0]= this->data[0] * P.data [0];
+        nmul_dc++;
         return PolinomDnC (0,dat);
     }
     else{

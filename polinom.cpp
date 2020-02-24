@@ -1,6 +1,8 @@
 #include "polinom.hpp"
 #include <ctime>
 
+int nmul_bf = 0;
+int nplus_bf =0;
 using namespace std;
 //C
 Polinom ::Polinom () : degree(0){
@@ -89,6 +91,8 @@ Polinom Polinom::operator*(const Polinom& P){
     for(int i =0; i<=P.degree;++i){
         for(int j=0; j<= this->degree;++j){
             dat[i+j] += this->data[j] * P.data[i];
+            nmul_bf++;
+            nplus_bf++;
         }
     }   
     return Polinom(n_degree, dat);

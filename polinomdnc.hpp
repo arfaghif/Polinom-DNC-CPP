@@ -2,6 +2,9 @@
 #define POLINOMDNC_HPP
 #include "polinom.hpp"
 
+extern int nplus_dc;
+extern int nmul_dc;
+
 class PolinomDnC : public Polinom {
 public:
     //Konstruktor

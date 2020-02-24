@@ -24,17 +24,21 @@ int main(){
     auto start = high_resolution_clock::now();
     Polinom PP = PP1 * PP2;
     auto stop = high_resolution_clock::now();
-    auto duration = duration_cast<nanoseconds>(stop-start);
+    auto duration = duration_cast<microseconds>(stop-start);
     cout << "Hasil P1 x P2 secara Brute force : \n" << PP<< endl;
-    cout << "Waktu eksekusi : "<< duration.count() << " nanosekon" << endl; 
-
+    cout << "Waktu eksekusi : "<< duration.count() << " microseconds" << endl; 
+    cout <<  "Jumlah operasi penjumlahan = " << nplus_bf << endl;
+    cout <<  "Jumlah operasi perkalian = " << nmul_bf << endl;
+    
     //D&C
     auto start2 = high_resolution_clock::now();
     PolinomDnC P = P1 * P2;
     auto stop2 = high_resolution_clock::now();
-    auto duration2 = duration_cast<nanoseconds>(stop2-start2);
+    auto duration2 = duration_cast<microseconds>(stop2-start2);
 
     cout<< "Hasil P1 x P2 secara Divide and Conquer : \n" <<P<< endl;
-    cout << "Waktu eksekusi : "<< duration2.count() << " nanosekon" << endl; 
+    cout << "Waktu eksekusi : "<< duration2.count() << " microseconds" << endl; 
+    cout <<  "Jumlah operasi penjumlahan = " << nplus_dc << endl;
+    cout <<  "Jumlah operasi perkalian = " << nmul_dc << endl;
 
 }

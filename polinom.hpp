@@ -2,6 +2,9 @@
 #define POLINOM_HPP
 #include <iostream>
 
+extern int nmul_bf;
+extern int nplus_bf;
+
 class Polinom {
 public:
     //Konstruktor
